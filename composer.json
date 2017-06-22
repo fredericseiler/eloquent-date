@@ -1,0 +1,35 @@
+{
+  "name": "seiler/eloquent-date",
+  "description": "A trait for Eloquent models to help you work with dates in different languages",
+  "keywords": [
+    "laravel",
+    "date",
+    "time",
+    "datetime",
+    "i18n",
+    "L10n",
+    "translation",
+    "carbon",
+    "eloquent"
+  ],
+  "homepage": "https://github.com/fredericseiler/eloquent-date",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Frederic Seiler",
+      "email": "frederic@seiler.io",
+      "homepage": "https://github.com/fredericseiler",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9",
+    "illuminate/database": "5.2.*",
+    "jenssegers/date": "3.2.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Seiler\\EloquentDate\\": "src/"
+    }
+  }
+}
