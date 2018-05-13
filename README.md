@@ -18,6 +18,7 @@ If you notice compliance oversights, please send a patch via pull request.
 
  Laravel | Eloquent-Date
 :--------|:--------
+ 5.6     | 5.6
  5.5     | 5.5
  5.4     | 5.4
  5.3     | 5.3
