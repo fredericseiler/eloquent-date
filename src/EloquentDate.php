@@ -12,7 +12,8 @@ use Jenssegers\Date\Date;
 trait EloquentDate
 {
     /**
-     * Get a fresh timestamp for the model.
+     * 
+     * Get a fresh timestamp for the model. (Concerns\HasTimestamps)
      *
      * @return \Jenssegers\Date\Date
      */
@@ -22,7 +23,7 @@ trait EloquentDate
     }
 
     /**
-     * Return a timestamp as DateTime object.
+     * Return a timestamp as DateTime object. (Concerns\HasAttributes)
      *
      * @param  mixed $value
      * @return \Jenssegers\Date\Date
@@ -63,7 +64,7 @@ trait EloquentDate
         // the database connection and use that format to create the Date object
         // that is returned back out to the developers after we convert it here.
         return Date::createFromFormat(
-            $this->getDateFormat(), $value
+            str_replace('.v', '.u', $this->getDateFormat()), $value
         );
     }
 }

@@ -18,6 +18,7 @@ If you notice compliance oversights, please send a patch via pull request.
 
  Laravel | Eloquent-Date
 :--------|:--------
+ 5.5     | 5.5
  5.4     | 5.4
  5.3     | 5.3
  5.2     | 5.2
@@ -30,7 +31,7 @@ Install using composer:
 $ composer require seiler/eloquent-date
 ```
 
-If you want to use Jenssegers\Date in other part of your application, there is a service provider included in the package [for integration](https://github.com/jenssegers/date#laravel) with the Laravel framework. This provider will get the application locale setting and use this for translations. To register the service provider, add the following to the providers array in `config/app.php`:
+If you want to use Jenssegers\Date in other part of your application, there is a service provider [included in the package](https://github.com/jenssegers/date#laravel) for integration with the Laravel framework. This provider will get the application locale setting and use this for translations. To register the service provider, add the following to the providers array in `config/app.php`:
 
 ```php
 'providers' => [
@@ -94,6 +95,7 @@ The Date package contains language files for the following languages:
  - Macedonian
  - Malay
  - Norwegian
+ - Nepali (नेपाली)
  - Polish
  - Portuguese
  - Persian (Farsi)
@@ -109,6 +111,7 @@ The Date package contains language files for the following languages:
  - Turkish
  - Turkmen
  - Ukrainian
+ - Uzbek
  - Vietnamese
  - Welsh
 
@@ -122,11 +125,10 @@ In your Eloquent model, add the `EloquentDate` trait:
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Seiler\EloquentDate\EloquentDate;
 
 class Post extends Model
 {
-    use EloquentDate;
+    use \Seiler\EloquentDate\EloquentDate;
 
     /**
      * The attributes that should be mutated to dates.
@@ -141,7 +143,7 @@ class Post extends Model
 }
 ```
 
-Now, any attribute declared in `$dates` will be converted to `Date` instance instead of `Carbon`:
+Now, any attribute declared in `$dates` will be converted to `Jenssegers\Date` instance instead of `Carbon`:
 
 ```php
 \Jenssegers\Date\Date::setLocale('fr');
@@ -149,13 +151,11 @@ Now, any attribute declared in `$dates` will be converted to `Date` instance ins
 $post = Post::find(1);
 
 echo $post->published_at->format('l j F Y H:i:s'); // samedi 19 mars 2016 21:58:16
+
+echo $post->published_at->ago(); // il y a 1 jour
 ```
 
-To learn all you can do with `Date`, please refer to its own [documentation](https://github.com/jenssegers/date#usage).
-
-## To Do
-
-Tests...
+To learn all you can do with `Jenssegers\Date`, please refer to its own [documentation](https://github.com/jenssegers/date#usage).
 
 ## Contributing
 
